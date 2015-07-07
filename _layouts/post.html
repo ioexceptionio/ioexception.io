@@ -6,13 +6,36 @@ layout: default
 {% endif %}
 <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if author %} • {{ author.display_name }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <span class="post-meta">
+        <ul class="post-details">
+            <li class="post-date"><p>{{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
+            {% if author %}
+            <li class="author-small" style="background-image: url('{{ author.gravatar | to_gravatar }}')">
+                <div class="author-small-name">{{ author.display_name }}</div>
+            </li>
+            {% endif %}
+        </ul>
+        </span>
+    </header>
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+    <article class="post-content">
+        {{ content }}
+    </article>
+
+    <!--<footer>-->
+        <!--<span>-->
+            <!--{% if author %}-->
+            <!--<div>-->
+                <!--<div style="display: block">-->
+                    <!--<div class="portrait-img"-->
+                         <!--style="background-image: url('{{ author.gravatar | to_gravatar }}')"></div>-->
+                    <!--<h5 style="display: block">{{ author.display_name }}</h5>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--{% endif %}-->
+        <!--</span>-->
+    <!--</footer>-->
 
 </div>

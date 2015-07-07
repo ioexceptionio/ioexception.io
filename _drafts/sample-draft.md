@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sample Draft Title"
-author: paulo
+author: clerton
 tags: [ tag1, tag2, tag3 ]
 css_classes: [ permalink ]
 ---
