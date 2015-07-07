@@ -1,4 +1,5 @@
 <footer class="related-posts">
+    {% if site.related_posts %}
     <div class="related-posts-hbar"></div>
     <h4>Related posts</h4>
     <ul>
@@ -8,4 +9,5 @@
         </li>
         {% endfor %}
     </ul>
+    {% endif %}
 </footer>
