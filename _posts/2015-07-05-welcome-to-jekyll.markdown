@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
-author: clerton
+author: paulo
 date:   2015-07-05 14:29:10
 categories: jekyll update
 ---
