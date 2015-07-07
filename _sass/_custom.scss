@@ -41,3 +41,34 @@
   padding-top: 12px;
   width: 150px;
 }
+
+.related-posts {
+  font-size: $small-font-size;
+  padding-top: 1px;
+}
+
+.related-posts ul {
+  margin-left: 5px;
+}
+
+.related-posts .related-posts-hbar {
+  margin-right: auto;
+  width: 60%;
+  border-top: 1px solid $grey-color-light;
+  margin-left: auto;
+  padding: $smallest-spacing-unit 0;
+}
+
+.related-posts li {
+  font-size: $smallest-font-size;
+  list-style: none;
+  margin-left: 0;
+//  display: inline-block;
+  margin-right: 5px;
+  margin-top: 1px;
+  padding-top: 0;
+}
+
+.related-posts li:last-of-type {
+  margin-right: 1px;
+}
