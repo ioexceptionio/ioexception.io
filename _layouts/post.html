@@ -10,7 +10,7 @@ layout: default
         <h1 class="post-title">{{ page.title }}</h1>
         <span class="post-meta">
         <ul class="post-details">
-            <li class="date" style="background: url(//ioexception.io/assets/images/time.svg) no-repeat;"><p>{{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
+            <li class="date" style="background: url(//ioexception.io/assets/images/time.svg) no-repeat; background-size: 28px;"><p>{{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
             {% if author %}
             <li class="author-small" style="background-image: url('//www.gravatar.com/avatar/{{ author.gravatar_hash }}?s={{ site.gravatar_small_size }}')">
             <!--<li class="author-small" style="background-image: url('{{ author.gravatar | to_gravatar }}')">-->
