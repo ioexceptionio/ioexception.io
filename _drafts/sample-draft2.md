@@ -2,6 +2,7 @@
 layout: post
 title: "Sample Draft Title 2"
 author: lourenco
+comments: true
 tags: [ tag1, tag2, tag3 ]
 css_classes: [ permalink ]
 ---
