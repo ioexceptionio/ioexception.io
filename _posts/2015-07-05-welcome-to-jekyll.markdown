@@ -2,6 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 author: paulo
+comments: true
 date:   2015-07-05 14:29:10
 categories: jekyll update
 ---
