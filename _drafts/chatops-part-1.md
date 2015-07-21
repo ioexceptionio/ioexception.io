@@ -7,8 +7,6 @@ tags: [ Hubot, deploy, heaven, github ]
 css_classes: [ permalink ]
 ---
 
-# ChatOps - Comunicação, Deploys rápidos, times satisfeitos
-
 ## ChatOps - o que é?
 Vamos começar por aqui. 
 
@@ -43,11 +41,11 @@ Este servidor Java, era o qual mais realizávamos _deployments_ diariamente. Tan
 O processo de _deploy_ era muito lento, principalmente para o time de qualidade.
 
 Começava pelo _build_, que era composto por: 
-* Rodar testes unitários;
-* Gerar o artefato no servidor de _CI_ (Bamboo);
-* Rodar análise de qualidade do Sonarqube;
-* Baixar o artefato gerado (.war);
-* Enviar para o servidor e rodar um script para  realizar a atualização.
+- Rodar testes unitários;
+- Gerar o artefato no servidor de _CI_ (Bamboo);
+- Rodar análise de qualidade do Sonarqube;
+- Baixar o artefato gerado (.war);
+- Enviar para o servidor e rodar um script para  realizar a atualização.
 
 Agora, imagine esses passos para cada _feature branch_ a ser testado pela qualidade? Pois é! Muito tempo perdido!
 
