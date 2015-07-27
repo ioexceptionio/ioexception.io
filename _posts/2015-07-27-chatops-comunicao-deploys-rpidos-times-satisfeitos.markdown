@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "ChatOps - Comunicação, Deploys rápidos, times satisfeitos."
+title: "ChatOps - Comunicação, Deployments rápidos, times satisfeitos."
+date: 2015-07-27T00:45:49-03:00
 author: fernando
 comments: true
 tags: [ Hubot, deploy, heaven, github ]
