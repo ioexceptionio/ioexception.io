@@ -12,7 +12,9 @@ Vamos começar por aqui.
 
 ChatOps é um termo muito creditado ao pessoal do Github. Se formos resumir, podemos dizer que é "_conversation-driven development_". Usando um _bot_ com _plugins_ e _scripts_, os times podem automatizar tarefas e colaborar, jogando fora os procedimentos repetitivos e economizando tempo.
 
-Para aplicar isso, os times usam bots para automatizar os procedimentos repetitivos. Alguns dos mais conhecidos são o [Hubot][hubot] e o [Lita][lita].
+Para aplicar isso, os times usam bots para automatizar os procedimentos manuais e repetitivos. Alguns dos mais conhecidos são o [Hubot][hubot] e o [Lita][lita].
+
+![hubot-image]({{ site.url }}/assets/images/2015/07/hubot.png)
 
 
 ## <a name="deployments-praticos"></a>Deployments práticos
@@ -31,7 +33,7 @@ A frequência do _deploy_ do(s) produto(s) que você trabalha diariamente, prova
 Esse assunto é velho, mas será que seu time está tirando o maior proveito possível deste processo? Não temos como saber, mas se os seus _deploys_ não estão muito frequentes, talvez seja um sinal que é possível melhorar.
 
 ## Contextualização
-Esse negócio de ChatOps, surgiu na minha vida profissional em um time que o adotou quando estava começando a trabalhar com alguns elementos que até "pouco" tempo atrás eram novidade: _feature branches_, _microservices_, etc. Meu desafio aqui, é relatar a experiência e os benefícios identificados em uma equipe em que tais práticas foram adotadas, já o seu é perceber se há ou não benefícios para seu time adotar algo aqui dito.
+Esse negócio de ChatOps surgiu na minha vida profissional em um time que o adotou quando estava começando a trabalhar com alguns elementos que até "pouco" tempo atrás eram novidade: _feature branches_, _microservices_, etc. Meu desafio aqui, é relatar a experiência e os benefícios identificados em uma equipe em que tais práticas foram adotadas, já o seu é perceber se há ou não benefícios para seu time adotar algo aqui dito.
 
 Claro que tudo é questão de perspectiva. Alguns times adotaram, outros não quiseram ou não tiveram necessidade. O fato é que hoje _feature branches_ e _microservices_ são assuntos massificados e muitas vezes precisamos tornar certos procedimentos mais eficientes, mas a história aqui é outra. Vamos em frente. 
 
@@ -45,9 +47,7 @@ Então voltemos a focar apenas no nosso processo de _code deployment_.
 O processo de _deploy_ durava até 30 minutos. O time utilizava apenas o Bamboo, da Atlassian, para integração contínua. 
 
 O elemento mais adequado para ser classificado como "legado" do nosso sistema é o servidor web, escrito em Java, que publica uma API REST para ser consumida pelo front-end e pelas aplicações móveis (iOS e Android).
-
 Este servidor Java, era o qual mais realizávamos _deployments_ diariamente. Tanto pelo time de qualidade, quanto pelo time de operações, em produção. 
-
 O processo de _deploy_ era muito lento, principalmente para o time de qualidade.
 
 O time de _QA_ realizava procedimentos manuais como baixar o artefato, fazer acesso remoto (SSH), etc. mas tudo começava pelo _build_, que era composto por: 
@@ -58,25 +58,20 @@ O time de _QA_ realizava procedimentos manuais como baixar o artefato, fazer ace
 - Enviar para o servidor e rodar um script para  realizar a atualização.
 
 Agora, imagine esses passos para cada _feature branch_ a ser testado pela qualidade? Pois é! Muito tempo perdido!
-
 Além disso, o time de qualidade possuía alguns ambientes para testar, e eles precisavam saber de forma rápida qual versão/_feature branch_/_revision_ estava rodando em cada um destes ambientes. Como resolver?
 
 Com ChatOps!
 
 ## Bots são divertidos
 Nesse ponto, decidimos testar a ideia e encontramos o _**Hubot**_ e outras ferramentas divertidas. Decidimos também descomplicar tudo que fosse possível, mantendo apenas o que fosse necessário para não retroceder na qualidade do software.
-
 O Hubot nos permite usar [_**CoffeeScript**_][coffeescript] para criar scripts e construir comandos que fazem o trabalho daqueles passos manuais, assim podemos descarta-los. 
-
 Todo processo que antes era feito de forma manual ou que é dispendioso, podemos deixar por conta do Hubot.
 Onde existem vários passos, podemos transformar em apenas um comando, como `hubot do stuff` e ele fará por você, como pode ver em uma das [imagens mostradas anteriormente](#imagem-exemplo-deployment).
 
 É nesse ponto que começa a diversão!
 
 Nosso objetivo era realizar automaticamente todos aqueles procedimentos que precisavam ser feitos de forma semi-manual, focando no _code deployment_.
-
 O que quero dizer com focar no _code deployment_?
-
 O Bamboo realiza varias tasks para garantir a qualidade do software. Algumas dessas tasks são meio lentas, e se precisássemos esperar por elas diversas vezes por dia, resultava em muito tempo perdido.
 
 Com isso, **pelo menos por enquanto (quem sabe?)**, precisamos manter o Bamboo para continuar executando os procedimentos que asseguram o rastreio da qualidade do software, mas podemos utilizar outras ferramentas em paralelo para realizar o deploy. O Bamboo continua gerando artefatos, rodando Sonarqube, etc e, em paralelo, fazemos nossos deploys. :)
@@ -187,12 +182,15 @@ Como pode ver, o tempo para realizar o deployment e ter a aplicação funcionand
 
 Além disso, todos do time podem ver o que está acontecendo e quais ambientes estão sendo utilizados. Isso economiza tempo. Ninguém precisa parar ninguém para perguntar. (Lembra que antes o time precisava criar um controle para saber qual versão/branch estava em cada ambiente?!)
 
-O hubot-deploy também disponibiliza outros comandos interessantes como...
+O hubot-deploy também disponibiliza outros comandos interessantes como o que lista os deployments realizados em um ambiente específico: `hubot deploys PROJECT in ENV`. Esse comando ajuda a saber quais _feature branches_ estão aplicados em cada um dos seus ambientes ou qual versão está em produção, por exemplo.
 
-Isso deixou o time mais rápido, os deployments mais rápido e, consequentemente, melhorou todo o processo do time em geral, mitigando o tempo perdido com o que foi mencionado em todo o post.
+![hubot-deploys-env]({{ site.url }}/assets/images/2015/07/hubot-deploys-env.png)
 
-Será que isso traria alguma vantagem para o seu time? Isso é só uma das poucas coisas que podemos fazer com o Hubot.
+Isso tudo deixou o time mais rápido, os deployments mais rápidos e, consequentemente, melhorou todo o processo do time em geral, mitigando o tempo perdido com tudo o que foi mencionado neste post.
 
+Posteriormente, caso exista interesse, posso criar um tutorial envolvendo hubot, hubot-deploy, heaven e fabric.
+
+Mas e aí? Será que isso traria alguma vantagem para o seu time? Isso é só uma das poucas coisas que podemos fazer com o Hubot.
 ;)
 
 
