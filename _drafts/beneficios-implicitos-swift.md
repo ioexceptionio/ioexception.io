@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Benefícios implícitos de Swift."
+author: lourenco
+comments: true
+tags: [ Swift, Objc, iOS ]
+css_classes: [ permalink ]
+---
+
 ### Benefícios implícitos de Swift
 
 Nesse primeiro post não irei falar de nenhuma novidade que que foi apresentada na nova versão de Swift pois já existem diversos artigos que abordam toda e possível utilização das novas features apresentadas na última WWDC.
